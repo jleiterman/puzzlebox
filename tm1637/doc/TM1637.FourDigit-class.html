@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TM1637.FourDigit</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TM1637-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="TM1637-module.html">Module&nbsp;TM1637</a> ::
+        Class&nbsp;FourDigit
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="TM1637.FourDigit-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class FourDigit</h1><p class="nomargin-top"><span class="codelink"><a href="TM1637-pysrc.html#FourDigit">source&nbsp;code</a></span></p>
+<p>Abstraction of the 4 digit 7-segment display based on the TM1637 
+  display driver. 7-bit ASCII characters are mapped as close as possible to
+  the 7 display segments. If a character cannot be mapped, the digit is 
+  cleared.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dio</span>=<span class="summary-sig-default">38</span>,
+        <span class="summary-sig-arg">clk</span>=<span class="summary-sig-default">40</span>,
+        <span class="summary-sig-arg">lum</span>=<span class="summary-sig-default">4</span>)</span><br />
+      Creates a display instance that uses the two given GPIO pins for data
+      (dio, default: 38) and clock (clk, default: 40).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="erase"></a><span class="summary-sig-name">erase</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Clears the display (all digits are turned off).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.erase">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#show" class="summary-sig-name">show</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Displays 4 characters of the given text.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.show">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="scroll"></a><span class="summary-sig-name">scroll</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Starts scrolling the text to the left and blocks until all characters
+      have passed by.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.scroll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#toRight" class="summary-sig-name">toRight</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Scrolls the current text one step to the left by decreasing the text 
+      pointer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toRight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#toLeft" class="summary-sig-name">toLeft</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Scrolls the current text one step to the left by increasing the text 
+      pointer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toLeft">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="toStart"></a><span class="summary-sig-name">toStart</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Shows the text at the start position by setting the text pointer to 
+      its start value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toStart">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#setLuminosity" class="summary-sig-name">setLuminosity</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">lum</span>)</span><br />
+      Sets the brightness of the display.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.setLuminosity">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#setColon" class="summary-sig-name">setColon</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">enable</span>)</span><br />
+      Enables/disables the colon in the middle of the screen.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.setColon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Static Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#getDisplayableChars" class="summary-sig-name">getDisplayableChars</a>()</span><br />
+      Returns a string with all displayable characters taken from PATTERN 
+      dictionary.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.getDisplayableChars">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#toHex" class="summary-sig-name">toHex</a>(<span class="summary-sig-arg">intValue</span>)</span><br />
+      Returns a string with hex digits from given number (&gt;0, any size).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toHex">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#toBytes" class="summary-sig-name">toBytes</a>(<span class="summary-sig-arg">intValue</span>)</span><br />
+      Returns a list of four byte values [byte#24-#31, byte#16-#23, 
+      byte#8-#15, byte#0-#7] of given integer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toBytes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TM1637.FourDigit-class.html#toInt" class="summary-sig-name">toInt</a>(<span class="summary-sig-arg">hexValue</span>)</span><br />
+      Returns an integer from given hex string</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toInt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Class Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="myData"></a><span class="summary-name">myData</span> = <code title="[0, 0, 0, 0]">[0, 0, 0, 0]</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Method Details</span></td>
+</tr>
+</table>
+<a name="getDisplayableChars"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getDisplayableChars</span>()</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.getDisplayableChars">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a string with all displayable characters taken from PATTERN 
+  dictionary.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The character set that can be displayed</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="toHex"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">toHex</span>(<span class="sig-arg">intValue</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toHex">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a string with hex digits from given number (&gt;0, any 
+  size).</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - the number to convert (must be positive)</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>string of hex digits (uppercase), e.g. 0xFE</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="toBytes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">toBytes</span>(<span class="sig-arg">intValue</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toBytes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a list of four byte values [byte#24-#31, byte#16-#23, 
+  byte#8-#15, byte#0-#7] of given integer.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - an integer</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>list with integers of 4 bytes [MSB,..., LSB]</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="toInt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">toInt</span>(<span class="sig-arg">hexValue</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toInt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns an integer from given hex string</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>number</code></strong> - a string with the number to convert, e.g. &quot;FE&quot; or 
+          &quot;fe&quot; or &quot;0xFE&quot; or &quot;0XFE&quot;</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>integer number</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dio</span>=<span class="sig-default">38</span>,
+        <span class="sig-arg">clk</span>=<span class="sig-default">40</span>,
+        <span class="sig-arg">lum</span>=<span class="sig-default">4</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Creates a display instance that uses the two given GPIO pins for data 
+  (dio, default: 38) and clock (clk, default: 40). It is set to the given 
+  luminosiy (0..9, default: 4)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="show"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">show</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.show">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Displays 4 characters of the given text. The text is considered to be 
+  prefixed and postfixed by spaces and the 4 character window is selected 
+  by the text pointer pos that determines the character displayed at the 
+  leftmost digit, e.g. (_: empty): showText(&quot;AbCdEF&quot;) -&gt; AbCd 
+  showText(&quot;AbCdEF&quot;, 1) -&gt; bCdE showText(&quot;AbCdEF&quot;, 
+  -1) -&gt;_AbC showText(&quot;AbCdEF&quot;, 4) -&gt; EF__</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>text</code></strong> - the text to display (string or integer)</li>
+        <li><strong class="pname"><code>pos</code></strong> - the start value of the text pointer (character index positioned a
+          leftmost digit)</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="toRight"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">toRight</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toRight">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Scrolls the current text one step to the left by decreasing the text 
+  pointer.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>the number of characters hidden, but remaining to be displayed at
+          the left (&gt;=0); -1, if error</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="toLeft"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">toLeft</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.toLeft">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Scrolls the current text one step to the left by increasing the text 
+  pointer.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>the number of characters hidden, but remaining to be displayed at
+          the right (&gt;=0); -1, if error</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="setLuminosity"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setLuminosity</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">lum</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.setLuminosity">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the brightness of the display.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>luminosity</code></strong>, <strong class="pname"><code>the</code></strong>, <strong class="pname"><code>brightness</code></strong>, <strong class="pname"><code>(0..9</code></strong>, <strong class="pname"><code>0</code></strong> - invisible)</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="setColon"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setColon</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">enable</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TM1637-pysrc.html#FourDigit.setColon">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enables/disables the colon in the middle of the screen. @param enable 
+  if True, the colon is shown in all subsequent text operations</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TM1637-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Nov 10 08:25:33 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
