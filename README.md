@@ -31,3 +31,27 @@ Gnd         14 **          Ground
 SCL         5              I2C SCL
 SDA         3              I2C SCA
 
+SSH1106
+
+from `https://hiletgo.com/ProductDetail/2157364.html` driver chip is SSH1106
+
+magic line is `sudo -H pip install --upgrade --ignore-installed pip setuptools`
+
+now this works
+```
+from luma.core.interface.serial import i2c
+from luma.core.render import canvas
+from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
+
+serial = i2c(port=1, address=0x3C)
+device = sh1106(serial)
+
+# Box and text rendered in portrait mode
+with canvas(device) as draw:
+    draw.rectangle(device.bounding_box, outline="white", fill="black")
+    draw.text((10, 10), "All Your Base are\nbelong to us!", fill="white")
+```
+A
+A
+D
+magic line is sudo -H pip install --upgrade --ignore-installed pip setuptools`
