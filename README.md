@@ -51,6 +51,8 @@ with canvas(device) as draw:
     draw.rectangle(device.bounding_box, outline="white", fill="black")
     draw.text((10, 10), "All Your Base are\nbelong to us!", fill="white")
 ```
+
+
 A
 A
 D

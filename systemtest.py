@@ -18,6 +18,20 @@ from TM1637 import FourDigit
 d = FourDigit()
 d.scroll("ALL your bAse Are Belong to us")   
 
+
+from luma.core.interface.serial import i2c
+from luma.core.render import canvas
+from luma.oled.device import sh1106
+
+serial = i2c(port=1, address=0x3C)
+device = sh1106(serial)
+
+# Box and text rendered in portrait mode
+with canvas(device) as draw:
+    draw.rectangle(device.bounding_box, outline="white", fill="black")
+    draw.text((10, 10), "All Your Base are\nbelong to us!", fill="white")
+time.sleep(10)
+
 # test buttons
 
 # test other
