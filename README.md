@@ -24,12 +24,23 @@ and/or Python 3 :
 `sudo python3 setup.py install`
 This process will give you ability to include the library within your own Python scripts.
 
-
+pin mapping for small screen
+```
 OLED Pin    Pi GPIO Pin    Notes
-Vcc         1              *3.3V
-Gnd         14 **          Ground
+GND         14             Ground
+Vcc         1              3.3V
 SCL         5              I2C SCL
 SDA         3              I2C SCA
+```
+pin mapping for 4 digit display
+```
+HW-069      Pi GPIO Pin    Notes
+CLK         40             PCM DOUT
+DIO         38             PCM DIN
+VCC         4              5V
+GND         6              Ground
+```
+
 
 SSH1106
 
@@ -46,11 +57,7 @@ from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
 serial = i2c(port=1, address=0x3C)
 device = sh1106(serial)
 
-# Box and text rendered in portrait mode
-with canvas(device) as draw:
-    draw.rectangle(device.bounding_box, outline="white", fill="black")
-    draw.text((10, 10), "All Your Base are\nbelong to us!", fill="white")
-```
+# Box and text rendered in portrait mode with canvas(device) as draw: draw.rectangle(device.bounding_box, outline="white", fill="black") draw.text((10, 10), "All Your Base are\nbelong to us!", fill="white") ```
 
 
 A
