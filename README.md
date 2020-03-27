@@ -61,24 +61,43 @@ from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
 serial = i2c(port=1, address=0x3C)
 device = sh1106(serial)
 ```
+## System Setup
+
+use the utility `sudo raspi-config` to enable the I2C interface and login into the wireless router
+
+special instructions for rasbian light
+`sudo apt-get update`
+install pip `sudo apt-get install python3-pip`
+install git `sudo apt-get install git`
+
+`sudo apt-get install libopenjp2-7`
+`sudo apt install libtiff5`
+
+Make Python and pip version 3 by default
+```
+` (only needed for rasbian light)
+sudo rm /usr/bin/python
+sudo rm /usr/bin/pip
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+```
 
 ```
 sudo pip install wiringpi
 sudo pip install luma.core
 sudo pip install luma.oled
+```
 
-Use `sudo raspi-config' to enable the I2C interface
-
-Make Python and pip version 3 by default
-
-sudo rm /usr/bin/python
-sudo rm /usr/bin/pip
-sudo ln -s /usr/bin/python3 /usr/bin/python
-sudo ln -s /usr/bin/pip3 /usr/bin/pip
-sudo python setup.py install
-
-git clone https://github.com/jleiterman/puzzlebox
+install python library for the red led
+```
 git clone https://github.com/depklyon/raspberrypi-python-tm1637
 cd raspberrypi-python-tm1637
 sudo python setup.py install
+```
+
+download the repository and test
+```
+git clone https://github.com/jleiterman/puzzlebox
+cd puzzlebox
+./systemtest.py
 ```
