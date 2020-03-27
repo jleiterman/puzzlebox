@@ -86,6 +86,7 @@ sudo ln -s /usr/bin/pip3 /usr/bin/pip
 sudo pip install wiringpi
 sudo pip install luma.core
 sudo pip install luma.oled
+sudo pip install gpiozero
 ```
 
 install python library for the red led
