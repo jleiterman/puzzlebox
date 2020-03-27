@@ -1,22 +1,24 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # test file to run system test.
-
+#import wiringpi
 import sys
-import Adafruit_DHT
+#import Adafruit_DHT
 import time
 import os
-sys.path.append('./tm1637/lib')
-from TM1637 import FourDigit
-
+#sys.path.append('./tm1637/lib')
+#from TM1637 import FourDigit
+import tm1637
+tm = tm1637.TM1637(clk=5,dio=4)
+tm.scroll('all your base are belong to us')
 # first test is to ensure that needed libraries load
 
 # test switches
 
 # test displayes
 
-d = FourDigit()
-d.scroll("ALL your bAse Are Belong to us")   
+#d = FourDigit()
+#d.scroll("ALL your bAse Are Belong to us")   
 
 
 from luma.core.interface.serial import i2c

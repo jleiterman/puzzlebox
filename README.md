@@ -60,11 +60,25 @@ from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
 
 serial = i2c(port=1, address=0x3C)
 device = sh1106(serial)
+```
 
-# Box and text rendered in portrait mode with canvas(device) as draw: draw.rectangle(device.bounding_box, outline="white", fill="black") draw.text((10, 10), "All Your Base are\nbelong to us!", fill="white") ```
+```
+sudo pip install wiringpi
+sudo pip install luma.core
+sudo pip install luma.oled
 
+Use `sudo raspi-config' to enable the I2C interface
 
-A
-A
-D
-magic line is sudo -H pip install --upgrade --ignore-installed pip setuptools`
+Make Python and pip version 3 by default
+
+sudo rm /usr/bin/python
+sudo rm /usr/bin/pip
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+sudo python setup.py install
+
+git clone https://github.com/jleiterman/puzzlebox
+git clone https://github.com/depklyon/raspberrypi-python-tm1637
+cd raspberrypi-python-tm1637
+sudo python setup.py install
+```
