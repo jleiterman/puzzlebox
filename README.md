@@ -43,11 +43,15 @@ GND         6              Ground
 
 
 SSH1106
-
 from `https://hiletgo.com/ProductDetail/2157364.html` driver chip is SSH1106
 
 magic line is `sudo -H pip install --upgrade --ignore-installed pip setuptools`
+new magic line as of 2020-03-26 `sudo pip install --index-url=https://pypi.python.org/simple/ setuptools`
+or possibly a combination of the previous two lines!!
 
+additional usefull note install Adafruit from the git 
+`git clone https://github.com/adafruit/Adafruit_Python_DHT.git`
+`sudo python seup.py install`
 now this works
 ```
 from luma.core.interface.serial import i2c
