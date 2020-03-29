@@ -30,12 +30,48 @@ with canvas(device) as draw:
 time.sleep(10)
 
 # test buttons
+
+def red_button_pressed():
+    print('Red button was pressed.')
+    tm.scroll('Red')
+
+red_button = Button(26)
+red_button.when_pressed = red_button_pressed
+
 def yellow_button_pressed():
     print('Yellow button was pressed.')
     tm.scroll('Yellow')
 
 yellow_button = Button(19)
 yellow_button.when_pressed = yellow_button_pressed
+
+def green_button_pressed():
+    print('Green button was pressed.')
+    tm.scroll('Green')
+
+green_button = Button(13)
+green_button.when_pressed = green_button_pressed
+
+def blue_button_pressed():
+    print('Blue button was pressed.')
+    tm.scroll('Blue')
+
+blue_button = Button(6)
+blue_button.when_pressed = blue_button_pressed
+
+def black_button_pressed():
+    print('Black button was pressed.')
+    tm.scroll('Black')
+
+black_button = Button(5)
+black_button.when_pressed = black_button_pressed
+
+def white_button_pressed():
+    print('White button was pressed.')
+    tm.scroll('White')
+
+white_button = Button(11)
+white_button.when_pressed = white_button_pressed
 
 pause()
 
