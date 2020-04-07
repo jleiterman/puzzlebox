@@ -9,7 +9,7 @@ def switch_1_up():
 def switch_1_down():
    print('switch 1 down')
 
-switch_1 = Button(24)
+switch_1 = Button(14)
 switch_1.when_pressed = switch_1_up
 switch_1.when_released = switch_1_down
 
@@ -19,7 +19,7 @@ def switch_2_up():
 def switch_2_down():
    print('switch 2 down')
 
-switch_2 = Button(23)
+switch_2 = Button(15)
 switch_2.when_pressed = switch_2_up
 switch_2.when_released = switch_2_down
 
@@ -39,7 +39,7 @@ def switch_4_up():
 def switch_4_down():
    print('switch 4 down')
 
-switch_4 = Button(15)
+switch_4 = Button(23)
 switch_4.when_pressed = switch_4_up
 switch_4.when_released = switch_4_down
 
@@ -49,7 +49,7 @@ def switch_5_up():
 def switch_5_down():
    print('switch 5 down')
 
-switch_5 = Button(14)
+switch_5 = Button(24)
 switch_5.when_pressed = switch_5_up
 switch_5.when_released = switch_5_down
 
@@ -92,16 +92,6 @@ def switch_9_down():
 switch_9 = Button(12)
 switch_9.when_pressed = switch_9_up
 switch_9.when_released = switch_9_down
-
-def switch_10_up():
-   print('switch 10 up')
-
-def switch_10_down():
-   print('switch 10 down')
-
-switch_10 = Button(9)
-switch_10.when_pressed = switch_10_up
-switch_10.when_released = switch_10_down
 
 pause()
 

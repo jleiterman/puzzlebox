@@ -40,7 +40,50 @@ DIO         38             PCM DIN
 VCC         4              5V
 GND         6              Ground
 ```
+```
 
+breakout board	physical pin	Pi GPIO Pin	Color	Notes
+40		01		3V		orange	LCD display 3V
+39		02				
+38		03		2		brown	LCD display I2C SCA
+37		04		5V		blue	4digit display 5V
+36		05		3		red	LCD display I2C SCL
+35		06		GND		green	4digit display ground
+34		07		04		purple	4digit display DIO (PCM DIN)
+33		08   		14		blue 	switch 1  
+32		09		GND		yellow	LCD display ground
+31		10		15		purple	switch 2
+30		11		17		grey	4digit display CLK (PCM DOUT)
+29		12		18		grey	switch 3
+28		13		27		white	rotate A left
+27		14   		GND		green	switchs' ground
+26		15		22		black	rotate A right
+25		16		23		white	switch 4
+24		17
+23		18		24		black	switch 5
+22		19		10 		grey	rotate A push
+21		20		GND		brown	rotate A ground
+20		21
+19		22		25		brown	switch 6
+18		23		11		white	white button
+17		24		07		red	switch 8
+16		25
+15		26		08		orange	switch 7
+14		27
+13		28
+12		29		5		black	black button
+11		30
+10		31		6		blue	blue button
+09		32		12		yellow	switch 9
+08		33		13		green	green button
+07		34		GND		brown	rotate B ground
+06		35		19		yellow	yellow button
+05		36		16		orange	rotate B right
+04		37		26		red	red button
+03		38		20		red	rotate B left
+02		39		GND		orange	buttons' ground
+01		40		21		yellow	rotate B push
+```
 
 SSH1106
 from `https://hiletgo.com/ProductDetail/2157364.html` driver chip is SSH1106
@@ -50,7 +93,7 @@ new magic line as of 2020-03-26 `sudo pip install --index-url=https://pypi.pytho
 or possibly a combination of the previous two lines!!
 
 additional usefull note install Adafruit from the git 
-`git clone https://github.com/adafruit/Adafruit_Python_DHT.git`
+
 `sudo python seup.py install`
 now this works
 ```
