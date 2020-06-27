@@ -3,47 +3,44 @@ import sys
 from gpiozero import Button
 from signal import pause
 
-def red_button_pressed():
-    print('red')
-    if blue_button.is_pressed:
-        print('Left')
+#a rotating button
+def a_right_pressed():
+    if a_left.is_pressed:
+        print('a left')
 
-red_button = Button(27)
-red_button.when_pressed = red_button_pressed
+a_right = Button(27)
+a_right.when_pressed = a_right_pressed
 
-def blue_button_pressed():
-    print('blue')
-    if red_button.is_pressed:
-        print('Right')
+def a_left_pressed():
+    if a_right.is_pressed:
+        print('a right')
 
-blue_button = Button(22)
-blue_button.when_pressed = blue_button_pressed
+a_left = Button(22)
+a_left.when_pressed = a_left_pressed
 
 def a_button_pressed():
-    print('push')
+    print('a button push')
 
 a_button = Button(10)
 a_button.when_pressed = a_button_pressed
 
 #b rotating button
-def b_red_button_pressed():
-    print('red')
-    if b_blue_button.is_pressed:
-        print('Left')
+def b_right_pressed():
+    if b_left.is_pressed:
+        print('b left')
 
-b_red_button = Button(20)
-b_red_button.when_pressed = b_red_button_pressed
+b_right = Button(20)
+b_right.when_pressed = b_right_pressed
 
-def b_blue_button_pressed():
-    print('blue')
-    if b_red_button.is_pressed:
-        print('Right')
+def b_left_pressed():
+    if b_right.is_pressed:
+        print('b right')
 
-b_blue_button = Button(16)
-b_blue_button.when_pressed = b_blue_button_pressed
+b_left = Button(16)
+b_left.when_pressed = b_left_pressed
 
 def b_button_pressed():
-    print('push')
+    print('b button push')
 
 b_button = Button(21)
 b_button.when_pressed = b_button_pressed
