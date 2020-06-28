@@ -185,17 +185,17 @@ switch_9.when_released = switch_9_down
 ## Test Rotating Buttons ###
 
 #a rotating button
-def a_right_pressed():
+def a_left_test():
     if a_left.is_pressed:
         print('a left')
         lcd_text("A Left")
-a_right.when_pressed = a_right_pressed
+a_right.when_pressed = a_left_test
 
-def a_left_pressed():
+def a_right_test():
     if a_right.is_pressed:
         print('a right')
         lcd_text("A Right")
-a_left.when_pressed = a_left_pressed
+a_left.when_pressed = a_right_test
 
 def a_button_pressed():
     print('a button push')
@@ -203,17 +203,17 @@ def a_button_pressed():
 a_button.when_pressed = a_button_pressed
 
 #b rotating button
-def b_right_pressed():
+def b_left_test():
     if b_left.is_pressed:
         print('b left')
         lcd_text("B Left")
-b_right.when_pressed = b_right_pressed
+b_right.when_pressed = b_left_test
 
-def b_left_pressed():
+def b_right_test():
     if b_right.is_pressed:
         print('b right')
         lcd_text("B Right")
-b_left.when_pressed = b_left_pressed
+b_left.when_pressed = b_right_test
 
 def b_button_pressed():
     print('b button push')
@@ -235,4 +235,4 @@ def countdown(red_led,t):
     lcd_text("System Test\nComplete")
     red_led.numbers(0, 0, True)
 
-countdown(red_led,t=400)
+countdown(red_led,t=100)

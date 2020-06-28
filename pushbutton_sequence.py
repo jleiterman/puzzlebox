@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# test file to run system test.
+# This is a pushbutton sequence example
 
 # first test is to ensure that needed libraries load
 import sys
@@ -47,12 +47,13 @@ b_left = Button(16)
 b_button = Button(21)
 
 
+def pushbutton_sequence(input_sequence):
 
-class pushbutton_sequence:
-    def __init__(self, sequence):
-        self.sequence = sequence
-        self.position = 0
-        #self.red_button = Button(26)
+    global sequence
+    global sequence_position
+    sequence = input_sequence
+    sequence_position = 0
+    puzzle_unsolved = True
 
     def lcd_text(text):
         with canvas(lcd_screen) as draw:
@@ -60,40 +61,49 @@ class pushbutton_sequence:
             draw.text((10, 10), text, fill="white")
     
     def red_button_pressed(self):
-        def lcd_text(text):
-            with canvas(lcd_screen) as draw:
-                draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
-                draw.text((10, 10), text, fill="white")
         print('Red button was pressed.')
-        #print(self.sequence[self.position])
-        lcd_text(text="Red button\nwas pressed")
+        update_sequence_position('red')
     red_button.when_pressed = red_button_pressed
     
     def yellow_button_pressed():
         print('Yellow button was pressed.')
-        lcd_text("Yellow button\nwas pressed")
+        update_sequence_position('yellow')
     yellow_button.when_pressed = yellow_button_pressed
     
     def green_button_pressed():
         print('Green button was pressed.')
-        lcd_text("Green button\nwas pressed")
+        update_sequence_position('green')
     green_button.when_pressed = green_button_pressed
     
     def blue_button_pressed():
         print('Blue button was pressed.')
-        lcd_text("Blue button\nwas pressed")
+        update_sequence_position('blue')
     blue_button.when_pressed = blue_button_pressed
     
     def black_button_pressed():
         print('Black button was pressed.')
-        lcd_text("Black button\nwas pressed")
+        update_sequence_position('black')
     black_button.when_pressed = black_button_pressed
-    
+
     def white_button_pressed():
         print('White button was pressed.')
-        lcd_text("White button\nwas pressed")
+        update_sequence_position('white')
     white_button.when_pressed = white_button_pressed
+    
+    def update_sequence_position(button_color):
+        global sequence
+        global sequence_position
+        global puzzle_unsolved
+        if sequence[sequence_position] == button_color:
+            sequence_position = sequence_position + 1
+        else:
+            sequence_position = 0
+        print('sequence position {:02d}'.format(sequence_position))
+        if sequence_position == len(sequence):
+            lcd_text("You Got It!\n'next clue'")
+            puzzle_unsolved = False
 
-tmp = pushbutton_sequence(['red','blue'])
+    while sequence_position < len(sequence):
+        sleep(1)
 
-#pause()
+pushbutton_sequence(['red','blue','green','blue'])

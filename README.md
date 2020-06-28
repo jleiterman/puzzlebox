@@ -145,3 +145,5 @@ git clone https://github.com/jleiterman/puzzlebox
 cd puzzlebox
 ./systemtest.py
 ```
+
+To autorun the program add it to the sudo crontab `sudo crontab -e` add the line pointing the the program you want to autorun for example `@reboot python /home/pi/puzzlebox/july4th2020.py`
