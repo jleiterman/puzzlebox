@@ -8,6 +8,7 @@ import time
 import os
 import tm1637
 import threading
+import datetime
 
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
@@ -56,9 +57,9 @@ def binary_toggle(target_number,clue_number):
     binary_toggle_puzzle_solved = False
     
     def display_solution():
-        red_led.scroll('solution {:03d}'.format(clue_number))
-        red_led.scroll('solution {:03d}'.format(clue_number))
-        red_led.scroll('solution {:03d}'.format(clue_number))
+        red_led.scroll('lock code {:03d}'.format(clue_number))
+        red_led.scroll('lock code {:03d}'.format(clue_number))
+        red_led.scroll('lock code {:03d}'.format(clue_number))
     
     def switch_change():
         global countdown_nodisplay_time
@@ -110,7 +111,7 @@ def binary_toggle(target_number,clue_number):
     while binary_toggle_puzzle_solved == False:
         sleep(1)
 
-binary_toggle_thread = threading.Thread(target=binary_toggle,args=(210,143))
+binary_toggle_thread = threading.Thread(target=binary_toggle,args=(237,104))
 binary_toggle_thread.start()
 
 
@@ -176,7 +177,7 @@ def pushbutton_sequence(*input_sequence):
         sleep(1)
 
 
-pushbutton_sequence_thread = threading.Thread(target=pushbutton_sequence,args=(['red','red','green','black']))
+pushbutton_sequence_thread = threading.Thread(target=pushbutton_sequence,args=(['red','green','black','white','yellow','white','black','blue']))
 pushbutton_sequence_thread.start()
 
 
@@ -198,7 +199,7 @@ def combination_lock_a(*lock_combination):
     
     def lcd_combination_success():
         with canvas(lcd_screen) as draw:
-            combination_success_string = 'Correct A\nThis is the next\nhint!' 
+            combination_success_string = '125 plus\nsomething else' 
             draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
             draw.text((10, 10), combination_success_string, fill="white")
             
@@ -255,7 +256,7 @@ def combination_lock_a(*lock_combination):
     while lock_solved_a != True:
         sleep(1)
 
-combination_lock_a_thread = threading.Thread(target=combination_lock_a,args=([10,4,4]))
+combination_lock_a_thread = threading.Thread(target=combination_lock_a,args=([11,23,19]))
 combination_lock_a_thread.start()
 
 
@@ -278,7 +279,7 @@ def combination_lock_b(*lock_combination):
     
     def lcd_combination_success():
         with canvas(lcd_screen) as draw:
-            combination_success_string = 'Correct B\nThis is the next\nhint!' 
+            combination_success_string = '643 plus\nsometing else' 
             draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
             draw.text((10, 10), combination_success_string, fill="white")
             
@@ -335,7 +336,7 @@ def combination_lock_b(*lock_combination):
     while lock_solved_b != True:
         sleep(1)
 
-combination_lock_b_thread = threading.Thread(target=combination_lock_b,args=([1,4,4]))
+combination_lock_b_thread = threading.Thread(target=combination_lock_b,args=([2,11,20]))
 combination_lock_b_thread.start()
 
 
@@ -358,3 +359,17 @@ def countdown(red_led,t):
 
 countdown_thread = threading.Thread(target=countdown,args=(red_led,3600))
 countdown_thread.start()
+
+def loguptime():
+    while True:
+        f = open('loguptime.txt', 'a')
+        f.write(datetime.datetime.now().strftime("%Y %m %d %H:%M:%S"))
+        f.write('\n')
+        f.close()
+        sleep(60)
+
+loguptime_thread = threading.Thread(target=loguptime)
+loguptime_thread.start()
+
+
+
