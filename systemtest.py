@@ -7,6 +7,8 @@ import sys
 import time
 import os
 import tm1637
+import threading
+import datetime
 
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
@@ -171,3 +173,8 @@ def countdown(red_led,t):
     red_led.numbers(0, 0, True)
 
 countdown(red_led,t=10)
+
+a_combo = [a_right,a_left,a_button]
+b_combo = [b_right,b_left,b_button]
+buttons = [yellow_button, green_button, blue_button, black_button, red_button, white_button]
+switches = [switch_1,switch_2,switch_3,switch_4,switch_5,switch_6,switch_7,switch_8,switch_9]
