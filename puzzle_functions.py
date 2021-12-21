@@ -135,11 +135,11 @@ def pushbutton_sequence(lcd_screen,buttons,input_sequence):
             sequence_position = 0
         print('sequence position {:02d}'.format(sequence_position))
         if sequence_position == len(sequence):
-            lcd_text("CONGRATUATIONS\n    YOU WIN!")
+            lcd_text("Correct\n    sequence")
             pushbutton_puzzle_solved = True
             sequence_position = 0
     
-    while sequence_position < len(sequence):
+    while not pushbutton_puzzle_solved:
         sleep(1)
 
 
@@ -275,7 +275,6 @@ def switch_combo(red_led,switches,switch_sequence,switch_up_text,switch_down_tex
     switch_8 = switches[7]
     switch_9 = switches[8]
     
-    
     global sequence
     global sequence_position
     global switch_puzzle_solved
@@ -289,23 +288,25 @@ def switch_combo(red_led,switches,switch_sequence,switch_up_text,switch_down_tex
         red_led.scroll(success_message)
         red_led.scroll(success_message)
     
-    
-    
     for i in range(len(switches)):
         def switchup(i):
             def switchupinner():
                 print(str(i+1)+' up')
-                red_led.scroll(switch_up_text[i])
+                if switch_up_text[i] != '':
+                    red_led.scroll(switch_up_text[i])
                 update_sequence_position(str(i+1)+' up')
             return switchupinner
-        switches[i].when_pressed = switchup(i)
+        if not switch_up_text[i] == 'skip this switch':
+            switches[i].when_pressed = switchup(i)
         def switchdown(i):
             def switchdowninner():
                 print(str(i+1)+' down')
-                red_led.scroll(switch_down_text[i])
+                if switch_down_text[i] != '':
+                    red_led.scroll(switch_down_text[i])
                 update_sequence_position(str(i+1)+' down')
             return switchdowninner
-        switches[i].when_released = switchdown(i)
+        if not switch_up_text[i] == 'skip this switch':
+            switches[i].when_pressed = switchup(i)
     
     def update_sequence_position(switch_action):
         global sequence
@@ -322,3 +323,88 @@ def switch_combo(red_led,switches,switch_sequence,switch_up_text,switch_down_tex
     
     while sequence_position < len(sequence):
         sleep(1)
+
+def rotate_lcd_multiselect(lcd_screen,button_combo,options,option_responces,title_rows):
+    
+    global switch_puzzle_solved
+    switch_puzzle_solved = False
+    
+    print("rotate_lcd_multiselect")
+    right  = button_combo[0]
+    left   = button_combo[1]
+    button = button_combo[2]
+    global multiselected
+    multiselected = 0
+    
+    def lcd_text(text):
+        with canvas(lcd_screen) as draw:
+            draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
+            draw.text((20, 10), text, fill="white")
+    
+    def draw_lcd_multiselect(lcd_screen,options):
+        print("got to draw_lcd_multiselect")
+        print("multiselected")
+        print(multiselected)
+        with canvas(lcd_screen) as draw:
+            draw.rectangle(lcd_screen.bounding_box, outline="black", fill="black")
+            draw.rectangle((0,0,127,27),outline="white",fill="white")
+            draw.text((1, 0),title_rows[0], fill="black")
+            draw.text((1, 9),title_rows[1], fill="black")
+            draw.text((1,18),title_rows[2], fill="black")
+            draw.rectangle((0,34,127,43),outline="black",fill="black")
+            draw.text((1,34),options[multiselected-1],fill="white")
+            draw.rectangle((0,44,127,53),outline="white",fill="white")
+            draw.text((1,44),options[multiselected],fill="black")
+            draw.rectangle((0,54,127,63),outline="black",fill="black")
+            if multiselected+1 == len(options):
+                draw.text((1,54),options[0],fill="white")
+            else:
+                draw.text((1,54),options[multiselected+1],fill="white")
+
+    def update_multiselect(lcd_screen,options):
+        global multiselected
+        print(multiselected)
+        if left.value == 0:
+            if multiselected+1 == len(options):
+                multiselected = 0
+            else:
+                multiselected = multiselected + 1
+        elif left.value == 1:
+            if multiselected == 0:
+                multiselected = len(options) -1
+            else:
+                multiselected = multiselected - 1
+        else:
+            print("it should not have come to this one_or_neg_one is not one or negative one")
+        draw_lcd_multiselect(lcd_screen,options)
+        print(multiselected)
+    
+    def update_multiselect_wrapper():
+        update_multiselect(lcd_screen,options)
+    
+    right.when_pressed = update_multiselect_wrapper
+    left.when_pressed  = update_multiselect_wrapper
+    
+    def multiselect_selected():
+        global switch_puzzle_solved
+        lcd_text(option_responces[multiselected])
+        switch_puzzle_solved = True
+    
+    button.when_pressed = multiselect_selected
+    
+    draw_lcd_multiselect(lcd_screen,options)
+    
+    while not switch_puzzle_solved:
+        print("tick")
+        sleep(1)
+    
+    def donothing():
+        do = "nothing"
+    
+    right.when_pressed  = donothing
+    left.when_pressed   = donothing
+    button.when_pressed = donothing
+    
+    print("ending")
+    print(multiselected)
+    return multiselected

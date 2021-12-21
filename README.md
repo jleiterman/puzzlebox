@@ -147,3 +147,16 @@ cd puzzlebox
 ```
 
 To autorun the program add it to the sudo crontab `sudo crontab -e` add the line pointing the the program you want to autorun for example `@reboot python /home/pi/puzzlebox/july4th2020.py`
+
+
+
+include a description of how the indexing on the rectangle works and also text about text 7 points high 6 points wide 9 points with two spaces above standard
+
+Screen holds a max of 22 characters wide
+
+with canvas(lcd_screen) as draw:
+    draw.rectangle((0,0,0,0,),outline="white",fill="white")
+    #draw.rectangle((127,63,127,63),outline="white",fill="white")
+    draw.rectangle((128,64,128,64),outline="white",fill="white")
+    draw.rectangle((10,10,20,20),outline="white",fill="white")
+    draw.rectangle((20,20,30,30),outline="white",fill="white")

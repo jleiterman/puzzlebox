@@ -39,7 +39,14 @@ def lcd_text(text):
         draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
         draw.text((10, 10), text, fill="white")
 
+def lcd_text_4line(text):
+    with canvas(lcd_screen) as draw:
+        draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
+        draw.text((10, 5), text, fill="white")
+
+
 lcd_text("System Test\nresults displayed\nhere")
+sleep(1)
 
 ### test buttons ###
 
@@ -169,8 +176,10 @@ def countdown(red_led,t):
         sleep(1)
         t -= 1
     print("System Test complete")
-    lcd_text("System Test\nComplete")
     red_led.numbers(0, 0, True)
+
+sleep(1)
+lcd_text("System Test\nComplete")
 
 countdown(red_led,t=10)
 
@@ -178,3 +187,24 @@ a_combo = [a_right,a_left,a_button]
 b_combo = [b_right,b_left,b_button]
 buttons = [yellow_button, green_button, blue_button, black_button, red_button, white_button]
 switches = [switch_1,switch_2,switch_3,switch_4,switch_5,switch_6,switch_7,switch_8,switch_9]
+
+def donothing():
+    do = "nothing"
+
+for a in a_combo:
+    a.when_pressed = donothing
+
+for b in b_combo:
+    b.when_pressed = donothing
+
+for button in buttons:
+    button.when_pressed = donothing
+
+for switch in switches:
+    switch.when_pressed = donothing
+    switch.when_released = donothing
+
+lcd_screen.clear()
+# all LEDS off
+red_led.write([0, 0, 0, 0])
+
