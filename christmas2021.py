@@ -95,6 +95,7 @@ def final_order_selection():
     sleep(5)
     if selected_gift_list == gift_correct_order:
         lcd_text("Order Complete\nOrder ID: js54Qv9\nMerry Christmas!")
+        sleep(900)
     else:
         lcd_text_4line("Order Submission\nInconsistent\nwith records\nPlease try again")
         sleep(10)
