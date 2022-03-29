@@ -152,6 +152,8 @@ To autorun the program add it to the sudo crontab `sudo crontab -e` add the line
 
 include a description of how the indexing on the rectangle works and also text about text 7 points high 6 points wide 9 points with two spaces above standard
 
+the screen is 64 pixel high by 128 wide.
+
 Screen holds a max of 22 characters wide
 
 with canvas(lcd_screen) as draw:
@@ -160,3 +162,57 @@ with canvas(lcd_screen) as draw:
     draw.rectangle((128,64,128,64),outline="white",fill="white")
     draw.rectangle((10,10,20,20),outline="white",fill="white")
     draw.rectangle((20,20,30,30),outline="white",fill="white")
+    
+attempting to integrate
+UEME 10.1" Portable DVD/CD Player With Car Headrest Holder, Personal DVD Players PD-1020
+resolution panel; resolution 1024*600
+
+edits to /boot/config.txt
+# uncomment to force a console size. By default it will be display's size minus
+# overscan.
+framebuffer_width=1024
+framebuffer_height=600
+
+# uncomment if hdmi display is not detected and composite is being output
+#hdmi_force_hotplug=1
+hdmi_ignore_hotplug=1 #needed to disable hdmi
+
+# uncomment to force a specific HDMI mode (this will force VGA)
+hdmi_group=1
+hdmi_mode=1
+
+# uncomment for composite PAL
+sdtv_mode=0   
+sdtv_aspect=3
+
+
+12345678902234567890323456789042345678905234567890623456789072345678908234567890
+checking character on little screen
+
+
+https://www.youtube.com/watch?v=4M-C9WHew9w
+ideas on the day night clock
+
+https://forums.raspberrypi.com/viewtopic.php?t=73120
+displaying images to display
+
+
+
+for sound get pygame
+```
+  731  apt-get update --allow-releaseinfo-change
+  732  sudo apt-get update --allow-releaseinfo-change
+  733  sudo apt-get install python3-pygame
+  734  python
+  735  sudo apt-get install libSDL2_mixer-2.0.so.0
+  736  sudo apt-get install git curl libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0
+```
+from pygame import mixer
+mixer.init()
+sound = mixer.Sound('applause-1.wav')
+#wget http://www.pacdv.com/sounds/people_sound_effects/applause-1.wav
+sound.play()
+
+
+cat /dev/urandom >/dev/fb0
+fim -a fim_yoda_1.jpg 

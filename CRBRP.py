@@ -2,6 +2,12 @@
 
 # CRBRP
 
+import threading
+from systemtest import *
+import puzzle_functions
+from importlib import reload
+
+
 # first test is to ensure that needed libraries load
 import sys
 import time
@@ -16,6 +22,14 @@ from gpiozero import Button
 from signal import pause
 from time import time, sleep, localtime
 
+
+# from pygame import mixer
+# mixer.init()
+# sound = mixer.Sound('applause-1.wav')
+# sound.play()
+
+
+
 # setup input-output
 #Red LED display
 red_led = tm1637.TM1637(clk=17,dio=4)
@@ -25,9 +39,46 @@ red_led = tm1637.TM1637(clk=17,dio=4)
 serial = i2c(port=1, address=0x3C)
 lcd_screen = sh1106(serial)
 
+red_led.show("LOCK")
+
+def rotate_led_multiselect(red_led,button_combo,ramge):
+    print("rotate_led_multiselect")
+    right  = button_combo[0]
+    left   = button_combo[1]
+    button = button_combo[2]
+    
+right  = a_combo[0]
+left   = a_combo[1]
+button = a_combo[2]
+value = 0
+valrange = range(1,10)
+
+def update_multiselect(lcd_screen,options):
+    global multiselected
+    print(multiselected)
+    if left.value == 0:
+        if multiselected+1 == len(options):
+            multiselected = 0
+        else:
+            multiselected = multiselected + 1
+    elif left.value == 1:
+        if multiselected == 0:
+            multiselected = len(options) -1
+        else:
+            multiselected = multiselected - 1
+    else:
+        print("it should not have come to this one_or_neg_one is not one or negative one")
+    draw_lcd_multiselect(lcd_screen,options)
+    print(multiselected)
+
+def update_multiselect_wrapper():
+    update_multiselect(lcd_screen,options)
+
+right.when_pressed = update_multiselect_wrapper
+left.when_pressed  = update_multiselect_wrapper
 
 #buttons
-red_button = Button(26)     #   Core Operation   #
+
 #   Core Operation   #
 #Core:Online         #  #Core:Shutdown       #
 #Core Temp:   XXXXX F#
@@ -36,7 +87,7 @@ red_button = Button(26)     #   Core Operation   #
 #flow rate: XXXXXlb/m#
 
 
-yellow_button = Button(19)  #Primary Heat Removal#
+
 #Primary Heat Removal#
 #Pump1: ON XXXXXX PSI#
 #Pump2:OFF XXXXXX PSI#
@@ -44,7 +95,7 @@ yellow_button = Button(19)  #Primary Heat Removal#
 #flow trgt: XXXXXlb/m#
 #flow rate: XXXXXlb/m#
 
-green_button = Button(13)   #  2nd Heat Removal  #
+
 #  2nd Heat Removal  #
 #Pump1: ON XXXXXX PSI#
 #Pump2:OFF XXXXXX PSI#
@@ -52,7 +103,7 @@ green_button = Button(13)   #  2nd Heat Removal  #
 #flow trgt: XXXXXlb/m#
 #flow rate: XXXXXlb/m#
 
-blue_button = Button(6)     #  Steam handeling   #
+
 #  Steam Handeling   #
 #Pump1: ON XXXXXX PSI#
 #Pump2:OFF XXXXXX PSI#
@@ -61,26 +112,26 @@ blue_button = Button(6)     #  Steam handeling   #
 #  pressure XXXXX PSI#
 #flow rate: XXXXXlb/m#
 
-black_button = Button(5)    #  Power Generation  #
-white_button = Button(11)   #   Backup Systems   #
+# black_button = Button(5)    #  Power Generation  #
+# white_button = Button(11)   #   Backup Systems   #
 
-#switches
-switch_1 = Button(14)       # Power on for Remote Radio Controler 
-switch_2 = Button(15)       # Manual Core Shutdown / Normal Operation
-switch_3 = Button(18)       # 
-switch_4 = Button(23)       # Primary heat removal Pump
-switch_5 = Button(24)       # Primary heat removal pump2
-switch_6 = Button(25)       # Primary loop coolent heater
-switch_7 = Button(8)
-switch_8 = Button(7)
-switch_9 = Button(12)
-#rotating buttons
-a_right = Button(27)        # Field selector #
-a_left = Button(22)         # Push to Cancel #
-a_button = Button(10)
-b_right = Button(20)        # Value adjustment #
-b_left = Button(16)         # Push to Enter #
-b_button = Button(21)
+# #switches
+# switch_1 = Button(14)       # Power on for Remote Radio Controler 
+# switch_2 = Button(15)       # Manual Core Shutdown / Normal Operation
+# switch_3 = Button(18)       # 
+# switch_4 = Button(23)       # Primary heat removal Pump
+# switch_5 = Button(24)       # Primary heat removal pump2
+# switch_6 = Button(25)       # Primary loop coolent heater
+# switch_7 = Button(8)
+# switch_8 = Button(7)
+# switch_9 = Button(12)
+# #rotating buttons
+# a_right = Button(27)        # Field selector #
+# a_left = Button(22)         # Push to Cancel #
+# a_button = Button(10)
+# b_right = Button(20)        # Value adjustment #
+# b_left = Button(16)         # Push to Enter #
+# b_button = Button(21)
 
 
 
@@ -97,8 +148,9 @@ with canvas(lcd_screen) as draw:
     draw.rectangle((0,0,127,9),outline="white",fill="white")
     draw.rectangle((14,12,127,13),outline="white",fill="white")
     draw.rectangle((0,14,13,63),outline="white",fill="white")
-    draw.text((1, 0),"primary heat removeal", fill="black")
+    draw.text((1, 0),"TopMenu pick SubMenu ", fill="black")
     draw.text((1,14),"Rr",fill="black")
+    draw.text((17,14),"Core Operation",fill="white")
     draw.text((1,24),"Yw",fill="black")
     draw.text((1,34),"Gr",fill="black")
     draw.text((1,44),"Bu",fill="black")

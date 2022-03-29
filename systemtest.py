@@ -66,11 +66,11 @@ def commission_test_repair_button(button_name,pin_number):
         print(button_name+' repaired')
     return button
 
-red_button = commission_test_repair_button('red button',26)
 yellow_button = commission_test_repair_button('yellow button',19)
 green_button = commission_test_repair_button('green button',13)
 blue_button = commission_test_repair_button('blue button',6)
 black_button = commission_test_repair_button('black button',5)
+red_button = commission_test_repair_button('red button',26)
 white_button = commission_test_repair_button('white button',11)
 
 ###  TEST SWITCHES ###
