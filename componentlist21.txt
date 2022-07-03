@@ -1,0 +1,122 @@
+  Turbine building  
+Turbine bridge crane 
+High-pressure turbine
+Low-pressure turbines
+      Generator      
+      Condenser      
+Low pressure heaters 
+  De-aerator heater  
+    Storage tank
+     Surge tank
+High-p fdwater heater
+Low-p fdwater heaters
+  Condensate pumps
+Steam gen feed pumps
+    Vacuum pumps
+   HVAC equipment
+ Chemical mix tanks
+Ammonia+storage tanks
+   Demineralizers
+      Filters
+     Clarifiers
+Stator winding cooler
+Condenser drain pumps
+Condensate tanks
+Warehouse & shop bldg
+Steam generator bldg
+Steamgen gantry crane
+Centr separation tank
+Reaction product tank
+       Igniter
+  aux heat removal
+     Steam drum
+   Water dump tank
+ Recirculating pump
+    Superheater
+    Evaporater
+ Intermediate pump
+  Expansion tank
+    Cold traps
+auxheat removal tank
+   Auxiliary bay
+  Sodium dump tank
+  Intermediate bay
+Primary sodium tanks 
+ColdReturn heatexhngr
+Feed from heat exhngr
+     Flow meter
+  Diesel generator
+   Diesel exhaust
+  Air intake plenum
+ Diesel fuel storage
+     Switchgear
+Chilled liquid rooms
+    Control room
+ Containment vessel
+ Recirculating fans
+ Reactor polar crane
+ Primary pump cooler
+Electrical eqmt room
+Inst&control cabinets
+Plug handling machine
+     Cable trays
+Aux handling machine
+xferMachine drivestor
+xferMachine portadapt
+   Equipment hatch
+In-vessel xferStorage
+Plug & sleeve storage
+LargeMaintenanceStand
+ Primary xfer hatch
+ Electrical conduits
+  Inspection vessel
+InspectionVessel eqpt
+   Reactor vessel
+Reactor guard vessel
+ Rotating head plugs
+Ex-vessel machineplug
+In-vessel machineplug
+Sodium from reactor
+Sodium to reactor 
+ReactorCavityCoolDuct
+    Primary pump
+Interm heat exchanger
+PrimarySodiumColdtrap
+Primary heat xfer fan
+Sodium storage vessel
+Sodium overflowVessel
+  Sodium drain pipe
+Sodium make-up pumps
+Sodium overflowcooler
+ personnel air lock
+  refuelling hatch
+RefuelHatch floortilt
+ Primary check valve
+Reactor service bldng
+Reactor service crane
+  Fuel control room
+     Reactor AC
+Reactor bldng airduct
+ Ex vessel transport
+   Transfer dolly
+    Floor valve
+ Fuel handling cell
+Cell handling machine
+  Cell bridge crane
+Fuel handling gallery
+New component storage
+ New component crane
+New component gallery
+  Spent fuel dolly
+ argon purification
+  Mass spectrometer
+argon processing box
+Liquid nitrogen tank
+air eval system tank
+Exvessel storage tank
+ Spent fuel railcar
+Decontamination area
+  Decon area crane
+Condensate store tank
+  Monitoring tanks
+ Plant service bldng

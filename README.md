@@ -150,11 +150,69 @@ To autorun the program add it to the sudo crontab `sudo crontab -e` add the line
 
 
 
-include a description of how the indexing on the rectangle works and also text about text 7 points high 6 points wide 9 points with two spaces above standard
+when using cavas the corrdinate system starts in the upper left corner of the screen and 
+draw.text((<pixels right of upper left corner>,<pixel down from upper left corner>)...
+
+draw.rectange((<top left pixels right of upper left corner>    , <top left pixels down of upper left corner>,
+               <bottom right pixels right of upper left corner>, <bottom right pixels down of upper left corner>)...
+
+text 7 points high 6 points wide 9 points with two spaces above is a comfortable spacing for reading
 
 the screen is 64 pixel high by 128 wide.
 
-Screen holds a max of 22 characters wide
+Screen holds a max of 21 characters wide with two extra pixels
+Using \n for new lines you can get 4
+
+#lcd_text("123456789012345678901\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11")
+#sleep(10) 
+with canvas(lcd_screen) as draw:
+    draw.rectangle(lcd_screen.bounding_box, outline="black", fill="black")
+    draw.text((1, 0),"123456789012345678901\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11", fill="white")
+
+with canvas(lcd_screen) as draw:
+    draw.rectangle(lcd_screen.bounding_box, outline="black", fill="black")
+    draw.text((1,2),"This is text it goes \nFrom Left to right bu\nt you must realize th\nat you can only fit s", fill="white")
+
+with canvas(lcd_screen) as draw:
+    draw.rectangle(lcd_screen.bounding_box, outline="black", fill="black")
+    draw.text((1,-2),"This is text it goes ", fill="white")
+    draw.text((1,5), "From Left to right bu", fill="white")
+    draw.text((1,12),"t if you space by 7  ", fill="white")
+    draw.text((1,19),"points  you can  get ", fill="white")
+    draw.text((1,26),"a total of nine lines", fill="white")
+    draw.text((1,33),"which is a lot but wh", fill="white")
+    draw.text((1,40),"ile this is readable ", fill="white")
+    draw.text((1,47),"it is very tight and ", fill="white")
+    draw.text((1,55),"I would recommend goi", fill="white")
+
+with canvas(lcd_screen) as draw:
+    draw.rectangle(lcd_screen.bounding_box, outline="black", fill="black")
+    draw.text((1,0), "This is text it goes ", fill="white")
+    draw.text((1,9), "From Left to right bu", fill="white")
+    draw.text((1,18),"t if you space by 9  ", fill="white")
+    draw.text((1,27),"points it seems like ", fill="white")
+    draw.text((1,36),"a reasonable compromi", fill="white")
+    draw.text((1,45),"se giving seven lines", fill="white")
+    draw.text((1,54),"of text as a soft lim", fill="white")
+
+    
+with canvas(lcd_screen) as draw:
+    draw.rectangle(lcd_screen.bounding_box, outline="black", fill="black")
+    draw.rectangle((0,0,127,9),outline="white",fill="white")
+    draw.rectangle((14,12,127,13),outline="white",fill="white")
+    draw.rectangle((0,14,13,63),outline="white",fill="white")
+    draw.text((1, 0),"TopMenu pick SubMenu ", fill="black")
+    draw.text((1,14),"Rr",fill="black")
+    draw.text((17,14),"Core Operation",fill="white")
+    draw.text((1,24),"Yw",fill="black")
+    draw.text((1,34),"Gr",fill="black")
+    draw.text((1,44),"Bu",fill="black")
+    draw.text((1,54),"Bk",fill="black")
+
+    #draw.text((0, 0),"123456789012345678901\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11", fill="black")
+    #draw.rectangle((1,1,126,62),outline="black",fill="black")
+    #draw.text((10,10),"White",fill="white")
+
 
 with canvas(lcd_screen) as draw:
     draw.rectangle((0,0,0,0,),outline="white",fill="white")

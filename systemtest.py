@@ -10,6 +10,7 @@ import tm1637
 import threading
 import datetime
 
+from importlib import reload
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
 from luma.oled.device import sh1106
@@ -208,3 +209,29 @@ lcd_screen.clear()
 # all LEDS off
 red_led.write([0, 0, 0, 0])
 
+def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
+    options =          ["        test         ","        CRBRP        ","    christmas2021    "]
+    option_responces = ["    you have\n    Selected\n     test","    you have\n    Selected\n     CRBRP","    you have\n    Selected\n  christmas2021"]
+    title_rows = ["Select puzzle Program","       to play       ","(use left nob & push)"]
+    from puzzle_functions import rotate_lcd_multiselect
+    
+    while True:
+        multiselected = rotate_lcd_multiselect(lcd_screen,a_combo,options,option_responces,title_rows)
+        if multiselected == 0:
+            import test
+            test = reload(test)
+            test.main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
+        elif multiselected == 1:
+            import CRBRP
+            CRBRP = reload(CRBRP)
+            CRBRP.main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
+        elif multiselected == 2:
+            import christmas2021
+            christmas2021 = reload(christmas2021)
+            christmas2021.main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
+        else:
+            print("should not be seeing this")
+
+
+if __name__ == "__main__":
+    main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)

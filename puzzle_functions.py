@@ -10,6 +10,18 @@ from gpiozero import Button
 from signal import pause
 from time import time, sleep, localtime
 
+def lcd_text(text):
+    with canvas(lcd_screen) as draw:
+        draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
+        draw.text((10, 10), text, fill="white")
+    
+def lcd_text_4line(text):
+    with canvas(lcd_screen) as draw:
+        draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
+        draw.text((10, 5), text, fill="white")
+
+
+
 def binary_toggle(target_number,success_message):
     
     global binary_toggle_puzzle_solved
