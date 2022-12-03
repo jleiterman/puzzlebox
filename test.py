@@ -1,8 +1,6 @@
 import threading
-#
 import puzzle_functions
 from importlib import reload
-#from systemtest import *
     
 def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
     from luma.core.render import canvas
@@ -37,25 +35,6 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
             draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
             draw.text((10, 10), text, fill="white")
 
-    def lcd_text_4line(text):
-        with canvas(lcd_screen) as draw:
-            draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
-            draw.text((10, 5), text, fill="white")
-
-    # def system_on():
-        # lcd_text('System Loading\n\n  please wait')
-        # red_led.scroll('ON             ON            ON')
-        # lcd_text_4line('WELCOME!\nauthenticate\nby entering toggle\nswitch sequence')
-
-    # switch_1.when_pressed = system_on
-
-    # dropping system off until we can get the whole script to start form beginning on restart
-    # def system_off():
-        # lcd_text('System Shutdown')
-        # red_led.scroll('off')
-        # lcd_screen.clear()
-
-    # switch_1.when_released = system_off
     lcd_text('to win press\n\n  red_button')
     red_button.wait_for_press()
     lcd_text('\nYou WIN')
@@ -66,5 +45,5 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
 
 
 if __name__ == "__main__":
-    from systemtest import *
+    from systemtest import red_led,lcd_screen,switches,buttons,a_combo,b_combo
     main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)

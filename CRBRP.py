@@ -60,7 +60,9 @@ def update_component_attribute_display():
     global componentlist
     global components
     global wh
-    red_led_2.show(str(component).zfill(3)+str(attribute))
+    global black_button
+    if black_button.is_pressed == False:
+        red_led_2.show(str(component).zfill(3)+str(attribute))
     if component == 0:
         lcd_screen_2.display(wh) 
     else:
@@ -233,7 +235,7 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
     from time import time, sleep, localtime
 
     global componentlist
-    with open('componentlist21.txt') as my_file:
+    with open('/home/pi/puzzlebox/componentlist21.txt') as my_file:
         componentlist = my_file.readlines()
     global lcd_screen_2
     lcd_screen_2 = lcd_screen
@@ -287,10 +289,64 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
     b_left   = b_combo[1]
     b_button = b_combo[2]
     
-    components[1] = plant_component('turbinebuilding')
+    components[1]  = plant_component('turbinebuilding')
     components[1].add_attribute(component_select_list_attribute("lights",["on","off"]))
     components[1].add_attribute(component_select_list_attribute("doors",["locked","unlocked"]))
     components[1].add_attribute(component_numeric_attribute("temperature",72,"degF",.05))
+    components[2]  = plant_component("Turbine bridge crane")
+    components[2].add_attribute(component_select_list_attribute("Motion Warning Lights",["off","on"]))
+    components[2].add_attribute(component_select_list_attribute("Motion Warning Siren",["off","on"]))
+    components[2].add_attribute(component_numeric_attribute("bridge position",82,"feet",0))
+    components[2].add_attribute(component_numeric_attribute("trolly position",23,"feet",0))
+    components[2].add_attribute(component_numeric_attribute("block hook position",28,"feet",0))
+    components[3]  = plant_component("High-pressure turbine")
+    components[3].add_attribute(component_numeric_attribute("Inlet steam temp",900,"degf",6))
+    components[3].add_attribute(component_numeric_attribute("Inlet steam pressure",1450,"psi",6))
+    components[4]  = plant_component("Low-pressure turbines")
+    components[4].add_attribute(component_numeric_attribute("Inlet steam temp",720,"degf",5))
+    components[4].add_attribute(component_numeric_attribute("Inlet steam pressure",1220,"psi",6))
+    components[5]  = plant_component("Generator")
+    components[5].add_attribute(component_numeric_attribute("Output Power",380,"megawatts",3))    
+    components[5].add_attribute(component_numeric_attribute("bearing vibration",7.4,"percent of max allowable",.02)) 
+    components[6]  = plant_component("Condenser")   
+    components[6].add_attribute(component_select_list_attribute("operation state",["on","off"])) 
+    components[7]  = plant_component("Low pressure heaters") 
+    components[7].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[8]  = plant_component("De-aerator heater")
+    components[8].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[9]  = plant_component("Storage tank")
+    components[9].add_attribute(component_numeric_attribute("percent filled",2.2,"percent of max allowable",.02)) 
+    components[10] = plant_component("Surge tank")
+    components[10].add_attribute(component_numeric_attribute("percent filled",18,"percent of max allowable",6)) 
+    components[11] = plant_component("High-p fdwater heater")
+    components[11].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[11].add_attribute(component_select_list_attribute("setpoint temperature",["400degF","425degF","450degF"]))
+    components[12] = plant_component("Low-p fdwater heaters")
+    components[12].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[12].add_attribute(component_select_list_attribute("setpoint temperature",["400degF","425degF","450degF"]))
+    components[13] = plant_component("Condensate pumps")
+    components[13].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[14] = plant_component("Steam gen feed pumps")
+    components[14].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[15] = plant_component("Vacuum pumps")
+    components[15].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[16] = plant_component("HVAC equipment")
+    components[16].add_attribute(component_select_list_attribute("operation state",["on","off"]))
+    components[25]  = plant_component('Warehouse & shop bldg')
+    components[25].add_attribute(component_select_list_attribute("lights",["on","off"]))
+    components[25].add_attribute(component_select_list_attribute("doors",["locked","unlocked"]))
+    components[25].add_attribute(component_numeric_attribute("temperature",72,"degF",.05))
+    components[26]  = plant_component('Steam generator bldg')
+    components[26].add_attribute(component_select_list_attribute("lights",["on","off"]))
+    components[26].add_attribute(component_select_list_attribute("doors",["locked","unlocked"]))
+    components[26].add_attribute(component_numeric_attribute("temperature",72,"degF",.05))
+    components[26].add_attribute(component_numeric_attribute("relative humidity",90,"percent",.05))
+    components[27]  = plant_component("Steamgen gantry crane")
+    components[27].add_attribute(component_select_list_attribute("Motion Warning Lights",["off","on"]))
+    components[27].add_attribute(component_select_list_attribute("Motion Warning Siren",["off","on"]))
+    components[27].add_attribute(component_numeric_attribute("bridge position",82,"feet",0))
+    components[27].add_attribute(component_numeric_attribute("trolly position",23,"feet",0))
+    components[27].add_attribute(component_numeric_attribute("block hook position",28,"feet",0))
     components[37] = plant_component("Intermediate pump")
     components[37].add_attribute(component_numeric_attribute("speed",1006,"rpm",10))
     components[37].add_attribute(component_numeric_attribute("head pressure",612,"feet",4))
@@ -302,11 +358,53 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
     components[46].add_attribute(component_select_list_attribute("lowtemp heater",["on","off"]))
     components[47] = plant_component("Flow meter")
     components[47].add_attribute(component_numeric_attribute("Sodium flow",20,"lb/hr",5))
+    components[48]  = plant_component('Diesel Generator Bldg')
+    components[48].add_attribute(component_select_list_attribute("lights",["on","off"]))
+    components[48].add_attribute(component_select_list_attribute("doors",["locked","unlocked"]))
+    components[48].add_attribute(component_numeric_attribute("temperature",72,"degF",.05))    
+    components[48]  = plant_component('Control room')
+    components[48].add_attribute(component_select_list_attribute("lights",["on","off"]))
+    components[48].add_attribute(component_select_list_attribute("doors",["unlocked","locked"]))
+    components[48].add_attribute(component_numeric_attribute("temperature",72,"degF",.05))    
+    components[57] = plant_component("Reactor polar crane")
+    components[57].add_attribute(component_select_list_attribute("Motion Warning Lights",["off","on"]))
+    components[57].add_attribute(component_select_list_attribute("Motion Warning Siren",["off","on"]))
+    components[57].add_attribute(component_numeric_attribute("bridge position",10,"degreesr",0))
+    components[57].add_attribute(component_numeric_attribute("trolly position",23,"feet",0))
+    components[57].add_attribute(component_numeric_attribute("block hook position",28,"feet",0))
     components[83] = plant_component("Interm heat exchanger")
     components[83].add_attribute(component_numeric_attribute("SodiumTemp prime IN",1150,"degF",10))
     components[83].add_attribute(component_numeric_attribute("SodiumTemp prime OUT",1100,"degF",10))
     components[83].add_attribute(component_numeric_attribute("SodiumTemp second IN",260,"degF",10))
     components[83].add_attribute(component_numeric_attribute("SodiumTemp second OUT",260,"degF",10))
+    components[95]  = plant_component('Reactor service bldng')
+    components[95].add_attribute(component_select_list_attribute("lights",["on","off"]))
+    components[95].add_attribute(component_select_list_attribute("doors",["locked","unlocked"]))
+    components[95].add_attribute(component_numeric_attribute("temperature",72,"degF",.05)) 
+    components[96] = plant_component("Reactor service crane")
+    components[96].add_attribute(component_select_list_attribute("Motion Warning Lights",["off","on"]))
+    components[96].add_attribute(component_select_list_attribute("Motion Warning Siren",["off","on"]))
+    components[96].add_attribute(component_numeric_attribute("bridge position",10,"feet",0))
+    components[96].add_attribute(component_numeric_attribute("trolly position",22,"feet",0))
+    components[96].add_attribute(component_numeric_attribute("block hook position",16,"feet",0))
+    components[108] = plant_component("New component crane")
+    components[108].add_attribute(component_select_list_attribute("Motion Warning Lights",["off","on"]))
+    components[108].add_attribute(component_select_list_attribute("Motion Warning Siren",["off","on"]))
+    components[108].add_attribute(component_numeric_attribute("bridge position",7,"feet",0))
+    components[108].add_attribute(component_numeric_attribute("trolly position",8,"feet",0))
+    components[108].add_attribute(component_numeric_attribute("block hook position",8,"feet",0))
+    components[118]  = plant_component('Decontamination area')
+    components[118].add_attribute(component_select_list_attribute("status",["contaminated","decontaminated"]))
+    components[119] = plant_component("Decon area crane")
+    components[119].add_attribute(component_select_list_attribute("Motion Warning Lights",["off","on"]))
+    components[119].add_attribute(component_select_list_attribute("Motion Warning Siren",["off","on"]))
+    components[119].add_attribute(component_numeric_attribute("bridge position",66,"feet",0))
+    components[119].add_attribute(component_numeric_attribute("trolly position",18,"feet",0))
+    components[119].add_attribute(component_numeric_attribute("block hook position",12,"feet",0))
+    components[122]  = plant_component('Plant service bldng')
+    components[122].add_attribute(component_select_list_attribute("lights",["off","on"]))
+    components[122].add_attribute(component_select_list_attribute("overhead door",["open","closed"]))
+    components[122].add_attribute(component_numeric_attribute("temperature",92,"degF",.05))    
     
     a_right.when_pressed = update_component_wrapper
     white_button.when_pressed = update_attribute_value
@@ -326,7 +424,7 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
     switch_1.wait_for_press()
     # display splash screen
     lcd_screen_2.display(wh)
-    red_led_2.scroll('ON             ON            ON')
+    red_led_2.scroll('ON      ON     ON')
 
 
     while not(puzzle_solved):
@@ -336,11 +434,29 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
             print(puzzle_solved)
             display_countdown()
         else:
-            sleep(5)
+            sleep(2)
+            update_component_attribute_display()
             print("puzzle_solved")
             print(puzzle_solved)
     
-    del switch_1, switch_2, switch_3,     switch_4,     switch_5,     switch_6,     switch_7,     switch_8,     switch_9,     yellow_button, green_button ,     blue_button  ,     black_button ,     red_button   ,     white_button ,     a_right ,     a_left  ,     a_button,     b_right ,     b_left  ,     b_button
+    
+    # cleaning up button functions
+    def donothing():
+        do = "nothing"
+    
+    for a in a_combo:
+        a.when_pressed = donothing
+    
+    for b in b_combo:
+        b.when_pressed = donothing
+    
+    for button in buttons:
+        button.when_pressed = donothing
+    
+    for switch in switches:
+        switch.when_pressed = donothing
+        switch.when_released = donothing
+    
     lcd_text('\nYou WIN')
     
  

@@ -1,0 +1,122 @@
+1. Turbine building
+2. Turbine building bridge crane
+3. High-pressure turbine
+4. Low-pressure turbines
+5. Generator
+6. Condenser
+7. Low pressure heaters
+8. De-aerator heater
+9. Storage tank
+10. Surge tank
+11. High-pressure feedwater heaters
+12. Low-pressure feedwater heaters
+13. Condensate pumps
+14. Steam generator feed pumps
+15. Vacuum pumps
+16. Heating, ventilation and air conditioning equipment
+17. Chemical mix tanks
+18. Ammonia, caustic, and acid storage tanks
+19. Demineralizers
+20. Filters
+21. Clarifiers
+22. Stator winding cooler unit
+23. Condenser ara n pumps
+24. Condensate polishing tanks
+25. Warehouse and strop building
+26. Steam generator bulding
+27. Steam generator building gantry crane
+28. Centrifugal separation tank
+29. Reaction products tank
+30. Igniter
+31. Steam generator auxiliary heat removal system air-cooled condenser
+32. Steam drum
+33. Water dump tank
+34. Recirculating pump
+35. Superheater
+36. Evaporaters
+37. Intermediate pump
+38. Expansion tank
+39. Cold traps
+40. Steam generator auxiliary heat removal system water tank
+41. Auxiliary bay
+42. Sodium dump tank
+43. Intermediate bay
+44. Primary sodium storage tanks (shown on opposite side of plant for clarity)
+45. Cold return to heat exhanger
+46. Steam feed from heat exchanger
+47. Flow meter
+48. Diesel generator building
+49. Diesel exhaust structure
+50. Air intake plenum
+51. Diesel fuel storage tanks
+52. Switchgear
+53. Chilled liquid rooms (water and dowsing spray)
+54. Control room
+55. Containment vessel
+56. Recirculating fans
+57. Reactor building polar crane
+58. Primary pump unit cooler:
+59. Electrical equipment rooms
+60. Instrumentation and control cabinets
+61. Plug handling machine
+62. Cable trays
+63. Auxiliary handling machine
+64. In vesse transfer machine drive mechanism storage
+65. In vesse transfer machine port adaptors
+66. Equipment hatch
+67. In vessel transfer machine storage
+68. Plug and sleeve storage
+69. Large maintenance stand
+70. Primary beat transfer system cell access hatch
+71. Electrical instrumentation and control embedded conduits
+72. Large component cleaning and inspection vessel
+73. Large component cleaning and Inspection vessel process equipment
+74. Reactor vessel
+75. Reactor guard vessel
+76. Rotating head plugs
+77. Ex-vessel Transport machine plug
+78. In vessel transfer machine plug
+79. Sodium from reactor to primary pump (hot leg)
+80. Sodium from intermediate heat exchanger te reactor (cold leg)
+81. Reactor cavity cooling duct
+82. Primary pump
+83. Intermediate heat exchanger
+84. Primary sodium cold traps
+85. Primary heat transfer system fan cooler unit
+86. Primary sodium storage vessel
+87. Reactor sodium overflow vessel
+88. Sodium drain pipe
+89. Primary sodium maka-up pumps
+90. Primary sodium averflow and storage cell cooler unit
+91. Primary personnel access air lock
+92. Reactor containment building refuelling hatch
+93. Refuelling hatch floor tilting mechanism
+94. Primary check valve
+95. Reactor service building
+96. Reactor service building bridge crane
+97. Fuel handling control room
+98. Reactor containment air conditioning unit
+99. Reactor service building air ducts
+100. Ex vessel transport machine
+101. Transfer dolly
+102. Floor valve
+103. Fuel handling cell
+104. Cell handling machine
+105. Cell bridge crane
+106. Fuel handling cell operating gallery
+107. New core component storage
+108. Now core component coll bridge crane
+109. New core component cell operating gallery
+110. Spent fuel cask and transport dally
+111. Fuel handling call argon purification unit
+112. Mass spectrometer
+113. Radioactive argon processing system cold box
+114. Liquid nitrogen storage vessels
+115. Cell atmospheric processing system liquid collection tank
+116. Ex-vessel storage tank
+117. Spent fuel sh pping cask on railroad car
+118. Decontamination area
+119. Decontamination area bridge crane
+120. Condensate storage tanks (liquid radwaste)
+121. Monitoring tanks (liquid radwaste)
+122. Plant service building
