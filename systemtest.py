@@ -35,6 +35,8 @@ red_led = tm1637.TM1637(clk=17,dio=4)
 serial = i2c(port=1, address=0x3C)
 lcd_screen = sh1106(serial)
 
+displays = [lcd_screen,red_led]
+
 def lcd_text(text):
     with canvas(lcd_screen) as draw:
         draw.rectangle(lcd_screen.bounding_box, outline="white", fill="black")
@@ -188,6 +190,7 @@ a_combo = [a_right,a_left,a_button]
 b_combo = [b_right,b_left,b_button]
 buttons = [yellow_button, green_button, blue_button, black_button, red_button, white_button]
 switches = [switch_1,switch_2,switch_3,switch_4,switch_5,switch_6,switch_7,switch_8,switch_9]
+displays = [lcd_screen, red_led]
 
 def donothing():
     do = "nothing"
@@ -209,9 +212,9 @@ lcd_screen.clear()
 # all LEDS off
 red_led.write([0, 0, 0, 0])
 
-def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
-    options =          ["        test         ","        CRBRP        ","    christmas2021    "]
-    option_responces = ["    you have\n    Selected\n     test","    you have\n    Selected\n     CRBRP","    you have\n    Selected\n  christmas2021"]
+def main(displays,red_led,lcd_screen,switches,buttons,a_combo,b_combo):
+    options =          ["        test         ","        CRBRP        ","    christmas2021    ","    christmas2023    "]
+    option_responces = ["    you have\n    Selected\n     test","    you have\n    Selected\n     CRBRP","    you have\n    Selected\n  christmas2021","    you have\n    Selected\n  christmas2023"]
     title_rows = ["Select puzzle Program","       to play       ","(use left nob & push)"]
     from puzzle_functions import rotate_lcd_multiselect
     
@@ -229,9 +232,13 @@ def main(red_led,lcd_screen,switches,buttons,a_combo,b_combo):
             import christmas2021
             christmas2021 = reload(christmas2021)
             christmas2021.main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
+        elif multiselected == 3:
+            import christmas2023
+            christmas2023 = reload(christmas2023)
+            christmas2023.main(displays,switches,buttons,a_combo,b_combo)
         else:
             print("should not be seeing this")
 
 
 if __name__ == "__main__":
-    main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
+    main(displays,red_led,lcd_screen,switches,buttons,a_combo,b_combo)
