@@ -158,9 +158,8 @@ def main(displays,switches,buttons,a_combo,b_combo):
     red_led.show('    ')
     sleep(5)
     lcd_text_4line(message_with_linebreaks)
-    sleep(900)
-
-
+    while not red_button.is_pressed:
+        sleep(1)
 
 
 if __name__ == "__main__":
