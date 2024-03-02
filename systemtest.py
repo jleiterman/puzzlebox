@@ -213,8 +213,8 @@ lcd_screen.clear()
 red_led.write([0, 0, 0, 0])
 
 def main(displays,red_led,lcd_screen,switches,buttons,a_combo,b_combo):
-    options =          ["        test         ","        CRBRP        ","    christmas2021    ","    christmas2023    "]
-    option_responces = ["    you have\n    Selected\n     test","    you have\n    Selected\n     CRBRP","    you have\n    Selected\n  christmas2021","    you have\n    Selected\n  christmas2023"]
+    options =          ["        test         ","    alaskacruise     ","        CRBRP        ","    christmas2021    ","    christmas2023    "]
+    option_responces = ["    you have\n    Selected\n     test","    you have\n    Selected\n    alaskacruise","    you have\n    Selected\n     CRBRP","    you have\n    Selected\n  christmas2021","    you have\n    Selected\n  christmas2023"]
     title_rows = ["Select puzzle Program","       to play       ","(use left nob & push)"]
     from puzzle_functions import rotate_lcd_multiselect
     
@@ -225,14 +225,23 @@ def main(displays,red_led,lcd_screen,switches,buttons,a_combo,b_combo):
             test = reload(test)
             test.main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
         elif multiselected == 1:
+            import alaskacruise
+            alaskacruise = reload(alaskacruise)
+            try:
+                alaskacruise.main(displays,switches,buttons,a_combo,b_combo)
+            except Exception as inst:
+                print(type(inst))    # the exception type
+                print(inst.args)     # arguments stored in .args
+                print(inst)          # __str__ allows args to be printed directly,
+        elif multiselected == 2:
             import CRBRP
             CRBRP = reload(CRBRP)
             CRBRP.main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
-        elif multiselected == 2:
+        elif multiselected == 3:
             import christmas2021
             christmas2021 = reload(christmas2021)
             christmas2021.main(red_led,lcd_screen,switches,buttons,a_combo,b_combo)
-        elif multiselected == 3:
+        elif multiselected == 4:
             import christmas2023
             christmas2023 = reload(christmas2023)
             christmas2023.main(displays,switches,buttons,a_combo,b_combo)

@@ -134,8 +134,9 @@ def main(displays,switches,buttons,a_combo,b_combo):
     solvecount = button_puzzle_solved + switch_puzzle_solved + nob_puzzle_solved
     pushed_buttons = ['gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray','gray']
     while not solvecount == 3:
-        #button_puzzle_solved = ['yellow','yellow','green'] == pushed_buttons[-3:]
-        button_puzzle_solved = ['yellow','green','green','red','red','blue','white','black','red','black','black','green','yellow','blue','green','yellow','white','blue','white','red'] == pushed_buttons[-20:]
+        #21 color sequence for all 4 wheels 8 color sequence for front wheels only
+        #button_puzzle_solved = ['yellow','green','green','red','red','blue','white','black','red','black','black','green','yellow','blue','green','black','yellow','white','blue','white','red'] == pushed_buttons[-21:]
+        button_puzzle_solved = ['yellow','red','red','white','black','green','green','black'] == pushed_buttons[-8:]
         switch_puzzle_solved = [1,0,0,0,1,1,0,1,0] == [switch_1.value,switch_2.value,switch_3.value,switch_4.value,switch_5.value,switch_6.value,switch_7.value,switch_8.value,switch_9.value]
         nob_puzzle_solved    = (pos == (1730,1390))
         # solve position
