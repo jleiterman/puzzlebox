@@ -45,7 +45,7 @@ Primary sodium tanks
 ColdReturn heatexhngr
 Feed from heat exhngr
      Flow meter
-  Diesel generator
+Diesel Generator Bldg
    Diesel exhaust
   Air intake plenum
  Diesel fuel storage
